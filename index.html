@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>늘품ABA 언어행동연구소</title>
+  <meta name="description" content="10년차 원장 직강 | 언어행동분석(VB) 전문 ABA 치료 센터 | 자체 개발 커리큘럼 운영">
+  <link rel="icon" href="assets/logo-icon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-dark: #37b474;
+      --green-mid: #6cb78a;
+      --green-light: #add8bd;
+      --green-bg: #f7fbf8;
+      --green-pale: #eef7f1;
+      --warm-bg: #fdfcfa;
+      --text-dark: #2a2a2a;
+      --text-mid: #555;
+      --text-light: #777;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      line-height: 1.8;
+      overflow-x: hidden;
+      background: var(--warm-bg);
+    }
+
+    /* ── 네비게이션 ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(55,180,116,0.08);
+      transition: box-shadow 0.3s;
+    }
+    .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 24px; height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { text-decoration: none; }
+    .nav-logo img { height: 46px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-mid); font-size: 15px; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green-dark); }
+    .nav-cta {
+      background: var(--green-dark); color: white; padding: 9px 22px;
+      border-radius: 22px; text-decoration: none; font-size: 14px; font-weight: 600;
+      transition: all 0.3s;
+    }
+    .nav-cta:hover { background: #2ea366; }
+    .nav-hamburger {
+      display: none; background: none; border: none; cursor: pointer; padding: 8px;
+    }
+    .nav-hamburger svg { width: 24px; height: 24px; color: var(--text-dark); }
+
+    /* ── 히어로 ── */
+    .hero {
+      padding: 130px 24px 80px;
+      background: var(--warm-bg);
+      text-align: center;
+    }
+    .hero-inner {
+      max-width: 750px; margin: 0 auto;
+    }
+    .hero-logo { margin-bottom: 30px; }
+    .hero-logo img { height: 60px; }
+    .hero-title {
+      font-size: 38px; font-weight: 700; line-height: 1.4; margin-bottom: 24px;
+      color: var(--text-dark); letter-spacing: -0.5px;
+    }
+    .hero-title .accent { color: var(--green-dark); }
+    .hero-desc {
+      font-size: 17px; color: var(--text-light); line-height: 1.9; margin-bottom: 40px;
+    }
+    .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--green-dark); color: white; padding: 15px 34px;
+      border-radius: 28px; text-decoration: none; font-size: 15px; font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover { background: #2ea366; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(55,180,116,0.25); }
+    .btn-secondary {
+      background: white; color: var(--green-dark); padding: 15px 34px;
+      border-radius: 28px; text-decoration: none; font-size: 15px; font-weight: 600;
+      border: 1.5px solid var(--green-light); transition: all 0.3s;
+    }
+    .btn-secondary:hover { border-color: var(--green-dark); background: var(--green-bg); }
+
+    /* ── 따뜻한 메시지 배너 ── */
+    .warm-banner {
+      background: var(--green-pale);
+      padding: 50px 24px;
+      text-align: center;
+    }
+    .warm-banner p {
+      max-width: 700px; margin: 0 auto;
+      font-size: 18px; color: var(--green-dark); font-weight: 500;
+      line-height: 1.9;
+    }
+
+    /* ── 섹션 공통 ── */
+    .section { padding: 90px 24px; }
+    .section-label {
+      text-align: center; font-size: 13px; font-weight: 600;
+      color: var(--green-dark); letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      text-align: center; font-size: 30px; font-weight: 700; margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+    .section-sub {
+      text-align: center; font-size: 16px; color: var(--text-light); margin-bottom: 50px;
+      line-height: 1.7;
+    }
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    /* ── 센터 소개 ── */
+    .about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .about-card {
+      background: var(--green-bg); border-radius: 18px; padding: 36px 28px;
+      text-align: center; transition: all 0.3s;
+    }
+    .about-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(55,180,116,0.08); }
+    .about-emoji { font-size: 40px; margin-bottom: 16px; }
+    .about-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .about-card p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+    /* ── 프로그램 ── */
+    .programs { background: var(--warm-bg); }
+    .program-list { display: flex; flex-direction: column; gap: 18px; }
+    .program-item {
+      background: white; border-radius: 16px; padding: 32px;
+      display: flex; align-items: flex-start; gap: 24px;
+      border: 1px solid #eef2ee; transition: all 0.3s;
+    }
+    .program-item:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.04); border-color: var(--green-light); }
+    .program-num {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--green-pale); color: var(--green-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800; flex-shrink: 0;
+    }
+    .program-content { flex: 1; }
+    .program-content h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+    .program-content p { font-size: 14px; color: var(--text-light); line-height: 1.8; }
+    .program-tags { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+    .program-tag {
+      background: var(--green-bg); color: var(--green-mid);
+      padding: 3px 12px; border-radius: 12px; font-size: 12px; font-weight: 500;
+    }
+
+    /* ── 커리큘럼 미리보기 ── */
+    .curriculum-preview { background: var(--green-pale); }
+    .curr-card {
+      max-width: 800px; margin: 0 auto;
+      background: white; border-radius: 20px; padding: 36px;
+      border: 1px solid #e2ede5;
+      box-shadow: 0 4px 24px rgba(55,180,116,0.06);
+    }
+    .curr-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
+      padding-bottom: 16px; border-bottom: 2px solid var(--green-pale);
+    }
+    .curr-header-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--green-pale); display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .curr-header h3 { font-size: 18px; font-weight: 700; }
+    .curr-header p { font-size: 13px; color: var(--text-light); }
+    .curr-domains {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+    }
+    .curr-domain {
+      background: var(--green-bg); border-radius: 14px; padding: 18px 20px;
+      border-left: 4px solid var(--green-dark);
+    }
+    .curr-domain-name {
+      font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;
+    }
+    .curr-domain-items {
+      display: flex; flex-wrap: wrap; gap: 5px;
+    }
+    .curr-item {
+      font-size: 11px; padding: 3px 10px; border-radius: 10px;
+      font-weight: 500; max-width: 100%; overflow: hidden;
+      text-overflow: ellipsis; white-space: nowrap; display: block;
+    }
+    .curr-item.done { background: var(--green-dark); color: white; }
+    .curr-item.active { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
+    .curr-item.pending { background: #f0f0f0; color: #999; }
+    .ct-table { width: 100%; border-collapse: separate; border-spacing: 3px; min-width: 1600px; }
+    .ct-head {
+      background: var(--green-dark); color: white; font-size: 11px;
+      font-weight: 700; padding: 10px 6px; text-align: center;
+      border-radius: 6px 6px 0 0; white-space: nowrap;
+    }
+    .ct-done, .ct-active, .ct-pending {
+      font-size: 10px; padding: 5px 6px; white-space: nowrap;
+      overflow: hidden; text-overflow: ellipsis; max-width: 130px;
+      border-radius: 3px;
+    }
+    .ct-done { background: #d4edda; color: #1a5c2e; }
+    .ct-active { background: #fff3cd; color: #856404; }
+    .ct-pending { background: #f0f0f0; color: #aaa; }
+    .curr-legend {
+      display: flex; gap: 16px; justify-content: center; margin-top: 20px;
+      padding-top: 16px; border-top: 1px solid #eef2ee;
+    }
+    .curr-legend span {
+      display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text-light);
+    }
+    .curr-legend-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+
+    /* ── 수업 진행 과정 ── */
+    .process { background: var(--white); }
+    .timeline {
+      max-width: 700px; margin: 0 auto;
+      position: relative;
+    }
+    .timeline::before {
+      content: ''; position: absolute; left: 28px; top: 0; bottom: 0;
+      width: 3px; background: var(--green-light); border-radius: 3px;
+    }
+    .timeline-item {
+      display: flex; gap: 24px; margin-bottom: 32px; position: relative;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--green-dark); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0; z-index: 1;
+      box-shadow: 0 4px 12px rgba(55,180,116,0.2);
+    }
+    .timeline-content {
+      background: var(--green-bg); border-radius: 16px; padding: 22px 26px;
+      flex: 1; border: 1px solid #eef2ee;
+      transition: all 0.3s;
+    }
+    .timeline-content:hover {
+      box-shadow: 0 4px 16px rgba(55,180,116,0.08);
+      border-color: var(--green-light);
+    }
+    .timeline-content h4 {
+      font-size: 16px; font-weight: 700; margin-bottom: 4px; color: var(--text-dark);
+    }
+    .timeline-content .timeline-when {
+      font-size: 12px; color: var(--green-dark); font-weight: 600; margin-bottom: 8px;
+    }
+    .timeline-content p {
+      font-size: 13px; color: var(--text-light); line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .curr-domains { grid-template-columns: 1fr; }
+      .curr-card { padding: 24px 18px; }
+      .timeline::before { left: 22px; }
+      .timeline-dot { width: 44px; height: 44px; font-size: 16px; }
+      .timeline-content { padding: 16px 18px; }
+    }
+
+    /* ── 원장 소개 ── */
+    .director { background: var(--white); }
+    .director-card {
+      max-width: 700px; margin: 0 auto;
+      background: var(--green-bg);
+      border-radius: 20px; padding: 44px;
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+    .director-photo {
+      width: 100px; height: 100px; border-radius: 50%;
+      background: var(--green-light); flex-shrink: 0;
+      overflow: hidden;
+    }
+    .director-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .director-info h3 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .director-info .title { color: var(--green-dark); font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+    .director-detail { margin-top: 24px; }
+    .director-detail-section { margin-bottom: 20px; }
+    .director-detail-section h4 {
+      font-size: 14px; font-weight: 700; color: var(--green-dark);
+      margin-bottom: 10px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .director-detail-section ul { list-style: none; }
+    .director-detail-section li {
+      padding: 3px 0; font-size: 13px; color: var(--text-mid);
+      display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+    }
+    .director-detail-section li::before { content: '·'; color: var(--green-dark); font-weight: 700; font-size: 16px; flex-shrink: 0; }
+    .director-detail-section li .sub { display: block; font-size: 12px; color: #999; }
+
+    /* ── 상담 문의 ── */
+    .contact { background: var(--warm-bg); }
+    .contact-card {
+      max-width: 600px; margin: 0 auto;
+      background: white; border-radius: 20px; padding: 44px;
+      border: 1px solid #eef2ee;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: flex; gap: 14px; }
+    .form-group { flex: 1; display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 13px; font-weight: 600; color: var(--text-mid); }
+    .form-group input, .form-group textarea, .form-group select {
+      padding: 13px 16px; border: 1px solid #e0e4e0; border-radius: 10px;
+      font-size: 14px; font-family: inherit; transition: border-color 0.2s;
+      outline: none; background: #fafbfa;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: var(--green-dark); background: white;
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit {
+      background: var(--green-dark); color: white; padding: 15px;
+      border: none; border-radius: 12px; font-size: 15px; font-weight: 700;
+      cursor: pointer; transition: all 0.3s; font-family: inherit; margin-top: 4px;
+    }
+    .form-submit:hover { background: #2ea366; }
+    .contact-info {
+      text-align: center; margin-top: 28px; padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+    .contact-info p { font-size: 13px; color: var(--text-light); margin-bottom: 4px; }
+    .contact-info .phone { font-size: 20px; font-weight: 700; color: var(--green-dark); }
+
+    /* ── 푸터 ── */
+    .footer {
+      background: #f5f5f3; color: #999; padding: 40px 24px;
+      text-align: center; font-size: 13px;
+    }
+    .footer-logo { margin-bottom: 12px; }
+    .footer-logo img { height: 30px; opacity: 0.6; }
+    .footer p { margin-bottom: 4px; color: #888; }
+    .footer .copyright { margin-top: 16px; color: #bbb; font-size: 12px; }
+
+    /* ── 모바일 ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: absolute;
+        top: 68px; left: 0; right: 0; background: white;
+        padding: 20px 24px; gap: 14px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      }
+      .nav-cta { display: none; }
+
+      .hero { padding: 110px 20px 60px; }
+      .hero-title { font-size: 28px; }
+      .hero-desc { font-size: 15px; }
+
+      .section { padding: 60px 20px; }
+      .section-title { font-size: 24px; }
+
+      .about-grid { grid-template-columns: 1fr; }
+
+      .program-item { flex-direction: column; padding: 24px; gap: 14px; }
+
+      .director-card { flex-direction: column; text-align: center; padding: 30px; }
+      .director-photo { width: 80px; height: 80px; margin: 0 auto; }
+      .director-info li { justify-content: center; }
+
+      .form-row { flex-direction: column; }
+      .contact-card { padding: 28px 20px; }
+
+      .warm-banner p { font-size: 16px; }
+    }
+
+    /* ── 스크롤 애니메이션 ── */
+    .fade-in {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- 네비게이션 -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="assets/logo-horizontal.png" alt="늘품ABA 언어행동연구소">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">소개</a></li>
+        <li><a href="#programs">프로그램</a></li>
+        <li><a href="#process">수업 과정</a></li>
+        <li><a href="#director">원장 소개</a></li>
+        <li><a href="#contact">문의</a></li>
+        <li><a href="#location">오시는 길</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">상담 문의</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="메뉴">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 히어로 -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-logo">
+        <img src="assets/logo-icon.png" alt="늘품ABA">
+      </div>
+      <h1 class="hero-title">
+        아이의 작은 한 걸음이<br>
+        <span class="accent">큰 성장</span>이 되는 곳
+      </h1>
+      <p class="hero-desc">
+        10년간 아이들과 함께한 경험을 바탕으로,<br>
+        한 아이 한 아이에게 맞는 길을 찾아갑니다.
+      </p>
+      <div class="hero-buttons">
+        <a href="http://pf.kakao.com/_iIYWG/chat" target="_blank" rel="noopener" class="btn-primary">상담 문의하기</a>
+        <a href="#programs" class="btn-secondary">프로그램 살펴보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 따뜻한 메시지 -->
+  <div class="warm-banner">
+    <p>
+      "모든 아이는 자기만의 속도로 자랍니다.<br>
+      늘품은 그 속도에 맞춰 함께 걸어가는 곳입니다."
+    </p>
+  </div>
+
+  <!-- 센터 소개 -->
+  <section class="section about" id="about">
+    <div class="container">
+      <p class="section-label fade-in">ABOUT US</p>
+      <h2 class="section-title fade-in">늘품이 걸어온 길</h2>
+      <p class="section-sub fade-in">늘 자라는 품성, 늘품.<br>아이의 성장을 오래도록 함께합니다.</p>
+      <div class="about-grid">
+        <div class="about-card fade-in">
+          <div class="about-emoji">🤝🏻</div>
+          <h3>10년차 원장 직강</h3>
+          <p>처음 만남부터 치료 과정까지, 원장이 직접 아이를 만나고 함께합니다.</p>
+        </div>
+        <div class="about-card fade-in">
+          <div class="about-emoji">🌱</div>
+          <h3>자체 개발 커리큘럼</h3>
+          <p>다양한 커리큘럼을 연구하고 직접 적용하며, 우리아이들에게 맞는 커리큘럼을 완성했습니다.</p>
+        </div>
+        <div class="about-card fade-in">
+          <div class="about-emoji">📝</div>
+          <h3>데이터 기반의 상담</h3>
+          <p>매 세션의 데이터를 기록하고, 부모님과 함께 아이의 성장을 확인합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 치료 프로그램 -->
+  <section class="section programs" id="programs">
+    <div class="container">
+      <p class="section-label fade-in">PROGRAMS</p>
+      <h2 class="section-title fade-in">아이에게 맞는 커리큘럼</h2>
+      <p class="section-sub fade-in">아이의 현재 수준과 필요에 따라 개별화된 목표를 설정합니다</p>
+      <div class="program-list">
+        <div class="program-item fade-in">
+          <div class="program-num">01</div>
+          <div class="program-content">
+            <h3>언어행동분석 기반</h3>
+            <p>아이가 원하는 것을 표현하고, 주변을 이해하며, 대화를 나눌 수 있도록 언어의 다양한 기능을 가르칩니다.</p>
+            <div class="program-tags">
+              <span class="program-tag">요구하기</span>
+              <span class="program-tag">명명하기</span>
+              <span class="program-tag">인트라버벌</span>
+              <span class="program-tag">언어모방</span>
+            </div>
+          </div>
+        </div>
+        <div class="program-item fade-in">
+          <div class="program-num">02</div>
+          <div class="program-content">
+            <h3>학습준비기술</h3>
+            <p>앉아서 집중하기, 선생님의 말 따라하기, 같은 것끼리 모으기 등 배움의 기초가 되는 기술을 익힙니다.</p>
+            <div class="program-tags">
+              <span class="program-tag">지시 따르기</span>
+              <span class="program-tag">모방</span>
+              <span class="program-tag">매칭</span>
+            </div>
+          </div>
+        </div>
+        <div class="program-item fade-in">
+          <div class="program-num">03</div>
+          <div class="program-content">
+            <h3>놀이 및 사회성</h3>
+            <p>또래와 함께 노는 법, 차례 지키기, 감정 이해하기 등 사회적 기술을 자연스러운 환경에서 배웁니다.</p>
+            <div class="program-tags">
+              <span class="program-tag">놀이기술</span>
+              <span class="program-tag">사회성</span>
+              <span class="program-tag">마음이론</span>
+            </div>
+          </div>
+        </div>
+        <div class="program-item fade-in">
+          <div class="program-num">04</div>
+          <div class="program-content">
+            <h3>자기관리</h3>
+            <p>스스로 할 수 있는 일을 늘려가며, 일상에서의 독립성을 높입니다.</p>
+            <div class="program-tags">
+              <span class="program-tag">자기관리</span>
+              <span class="program-tag">일상 루틴</span>
+              <span class="program-tag">행동 조절</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 커리큘럼 미리보기 -->
+  <section class="section curriculum-preview" id="curriculum">
+    <div class="container">
+      <p class="section-label fade-in">CURRICULUM</p>
+      <h2 class="section-title fade-in">아이의 현재 단계를 한눈에</h2>
+      <p class="section-sub fade-in">늘품 커리큘럼으로 아이가 지금 어디까지 왔는지,<br>다음 목표가 무엇인지 명확하게 파악합니다</p>
+
+      <div class="fade-in" style="border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.08);border:1px solid #e8e8e8;">
+        <img src="assets/curriculum-preview.png" alt="늘품 개별화 커리큘럼 미리보기" style="width:100%;display:block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- 수업 진행 과정 -->
+  <section class="section process" id="process">
+    <div class="container">
+      <p class="section-label fade-in">PROCESS</p>
+      <h2 class="section-title fade-in">이렇게 함께합니다</h2>
+      <p class="section-sub fade-in">처음 만남부터 꾸준한 성장까지,<br>부모님과 함께 걸어가는 과정입니다</p>
+
+      <div class="timeline">
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot">📞</div>
+          <div class="timeline-content">
+            <h4>초기 상담</h4>
+            <div class="timeline-when">첫 만남</div>
+            <p>아이가 지금 어디까지 왔는지, 부모님의 고민을 듣고 함께 방향을 이야기합니다.</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot">📝</div>
+          <div class="timeline-content">
+            <h4>평가 및 목표 설정</h4>
+            <div class="timeline-when">세션 시작 후 약 8회기</div>
+            <p>아이를 직접 만나 현재 수준을 파악하고, 아이에게 맞는 개별화교육계획(IEP)을 작성합니다.</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot">🎯</div>
+          <div class="timeline-content">
+            <h4>치료 진행</h4>
+            <div class="timeline-when">매 세션</div>
+            <p>커리큘럼에 따라 1:1 맞춤 수업을 진행하며, 매 세션마다 아이의 반응을 데이터로 기록합니다.</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot">💬</div>
+          <div class="timeline-content">
+            <h4>데이터 기반 상담</h4>
+            <div class="timeline-when">매 세션 후</div>
+            <p>수업이 끝나면 오늘의 데이터를 함께 보며, 아이의 변화와 다음 방향을 부모님과 맞춰갑니다.</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot">📊</div>
+          <div class="timeline-content">
+            <h4>월별 · 6개월 보고서</h4>
+            <div class="timeline-when">매월 / 3개월마다</div>
+            <p>월별 보고서로 한 달간의 성장을 정리하고, 6개월 보고서로 큰 그림에서의 변화를 확인합니다.</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot">🌱</div>
+          <div class="timeline-content">
+            <h4>함께 성장하기</h4>
+            <div class="timeline-when">지속적으로</div>
+            <p>데이터를 기반으로 목표를 조정하며, 아이의 속도에 맞춰 부모님과 함께 걸어갑니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 원장 소개 -->
+  <section class="section director" id="director">
+    <div class="container">
+      <p class="section-label fade-in">DIRECTOR</p>
+      <h2 class="section-title fade-in">원장 소개</h2>
+      <p class="section-sub fade-in">아이들과 함께한 시간이 가장 큰 자산입니다</p>
+      <div class="director-card fade-in">
+        <div class="director-info" style="text-align:center;">
+          <h3>김선혜</h3>
+        </div>
+        <div class="director-detail" style="width:100%;">
+          <div class="director-detail-section">
+            <h4>자격</h4>
+            <ul>
+              <li>국제행동분석전문가 (BCBA)</li>
+              <li>행동분석전문가 (KBA)</li>
+              <li>응용행동분석전문가 1급 (ABAS-1)</li>
+              <li>CABAS® Teacher I</li>
+              <li>2급 언어재활사 (보건복지부)</li>
+              <li>Picture Exchange Communication System® (PECS®) Level 1</li>
+            </ul>
+          </div>
+          <div class="director-detail-section">
+            <h4>경력</h4>
+            <ul>
+              <li>현) 늘품ABA 언어행동연구소 원장</li>
+              <li>현) 한국 언어행동분석 전문가협회 이사</li>
+              <li>현) 인천광역시 북부특수교육지원센터 행동중재지원단 (2024~)</li>
+              <li>전) 카바ABA연구소 조기교실 수퍼바이저</li>
+              <li>전) 카바ABA연구소 개별중재</li>
+            </ul>
+          </div>
+          <div class="director-detail-section">
+            <h4>학력</h4>
+            <ul>
+              <li>백석대학교 교육학석사 (응용행동분석)</li>
+              <li>원광디지털대학교 언어치료학과 학사</li>
+            </ul>
+          </div>
+          <div class="director-detail-section">
+            <h4>논문</h4>
+            <ul>
+              <li>임미선, 김선혜, 박혜숙 (2021). 자극 등가 관계에 있는 자극들에 대한 청자 반응 훈련이 파생적 청자 반응과 인트라버벌 반응의 출현에 미치는 영향. 행동분석·지원연구, 8(1), 43-60.</li>
+              <li>이박혜숙, 최에스터, 유은혜, 강보름, 김승주, 강지수, 김선혜 외 (2020). 고강도택트교수(Intensive Tact Instruction)가 언어지연과 발달 장애를 보이는 학령전기 아동의 네이밍능력 발달에 미치는 영향. 행동분석·지원연구, 7(2), 37-66.</li>
+              <li>김선혜 (2019). 그림 촉구가 포함된 인트라버벌 교수가 자폐스펙트럼장애 아동의 파생적 언어행동에 미치는 효과. 석사학위논문, 백석대학교 교육대학원.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 상담 문의 -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <p class="section-label fade-in">CONTACT</p>
+      <h2 class="section-title fade-in">상담 문의</h2>
+      <p class="section-sub fade-in">궁금한 점이 있으시면 편하게 연락주세요</p>
+      <div class="contact-card fade-in" style="text-align:center;">
+        <a href="http://pf.kakao.com/_iIYWG/chat" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#FEE500;color:#3C1E1E;font-weight:700;font-size:16px;padding:14px 32px;border-radius:12px;text-decoration:none;">
+          💬 카카오톡 상담하기
+        </a>
+        <div class="contact-info" style="margin-top:28px;">
+          <p>전화 문의</p>
+          <p class="phone">010-2190-1489</p>
+          <p style="margin-top:6px;">평일 10:00 ~ 19:00</p>
+          <p style="font-size:12px;color:#999;margin-top:4px;">수업 중에는 연결이 어려울 수 있습니다. 문자 남겨주시면 확인 후 연락드리겠습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 오시는 길 -->
+  <section class="section" id="location" style="background:var(--white);">
+    <div class="container">
+      <p class="section-label fade-in">LOCATION</p>
+      <h2 class="section-title fade-in">오시는 길</h2>
+      <p class="section-sub fade-in">인천타워대로 54번길 13 해승메디피아 4층</p>
+      <div class="fade-in" style="max-width:700px;margin:0 auto;">
+        <a href="https://map.naver.com/p/search/인천타워대로 54번길 13 해승메디피아" target="_blank" rel="noopener" style="display:block;margin-bottom:24px;">
+          <img src="assets/map.png" alt="오시는 길 지도" style="width:100%;border-radius:12px;border:1px solid var(--border);">
+        </a>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
+          <div style="flex:1;min-width:200px;background:var(--green-bg);border-radius:12px;padding:16px 20px;text-align:center;">
+            <p style="font-size:20px;margin-bottom:6px;">🚇</p>
+            <p style="font-size:14px;font-weight:700;color:var(--text);">지식정보단지역</p>
+            <p style="font-size:13px;color:var(--text-muted);">3번 출구 도보 3분</p>
+          </div>
+          <div style="flex:1;min-width:200px;background:var(--green-bg);border-radius:12px;padding:16px 20px;text-align:center;">
+            <p style="font-size:20px;margin-bottom:6px;">🅿️</p>
+            <p style="font-size:14px;font-weight:700;color:var(--text);">무료 주차</p>
+            <p style="font-size:13px;color:var(--text-muted);">건물 내 주차장 이용 가능</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="assets/logo-horizontal.png" alt="늘품ABA 언어행동연구소" style="height:36px;">
+    </div>
+    <p>주소: 인천타워대로 54번길 13 해승메디피아 4층</p>
+    <p>전화: 010-2190-1489</p>
+    <p class="copyright">&copy; 2022 늘품ABA 언어행동연구소</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+  </script>
+</body>
+</html>
